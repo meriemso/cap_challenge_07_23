@@ -6,11 +6,11 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@sap/cds": "^6",
+    "@sap/cds": "^7",
     "express": "^4"
   },
   "devDependencies": {
-    "sqlite3": "^5"
+    "@cap-js/sqlite": "^1"
   },
   "scripts": {
     "start": "cds-serve"
