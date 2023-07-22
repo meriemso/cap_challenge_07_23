@@ -1,0 +1,24 @@
+#
+# Get Holes
+#
+
+GET http://localhost:4004/browse/Holes
+
+###
+POST http://localhost:4004/browse/Holes
+Content-Type: application/json
+
+{
+    "score": 3,
+    "par": 4
+}
+
+###
+POST http://localhost:4004/browse/Holes
+Content-Type: application/json
+
+{
+    "score": 2,
+    "par": 5
+}
+
