@@ -5,20 +5,85 @@
 GET http://localhost:4004/browse/Holes
 
 ###
+GET http://localhost:4004/browse/Results
+###
 POST http://localhost:4004/browse/Holes
 Content-Type: application/json
 
 {
+    "name": " First Hole",
     "score": 3,
     "par": 4
+}
+
+###
+POST http://localhost:4004/browse/Rounds
+Content-Type: application/json
+
+{
+    "title": "Round 2"
+}
+
+###
+POST http://localhost:4004/browse/Rounds
+Content-Type: application/json
+
+{
+    "title": "Round 1",
+    "holes" : [
+        {
+            "par": 4,
+            "shots" :[
+                {
+                    "name":"shot 1",
+                    "distance" : 20
+                },
+                {
+                    "name":"shot 2",
+                    "distance" : 80
+                },
+                {
+                    "name":"shot 2",
+                    "distance" : 80
+                }
+            ]
+        }
+    ]
+   
 }
 
 ###
 POST http://localhost:4004/browse/Holes
 Content-Type: application/json
 
+
 {
-    "score": 2,
-    "par": 5
+    "par": 4,
+    "shots" :[
+        {
+            "name":"shot 1",
+            "distance" : 20
+        },
+        {
+            "name":"shot 2",
+            "distance" : 80
+        },
+        {
+            "name":"shot 2",
+            "distance" : 80
+        }
+    ]
 }
 
+###
+POST http://localhost:4004/browse/Shots
+Content-Type: application/json
+
+{
+    "name":"shot 1",
+    "distance" : 20
+}
+
+
+###
+GET http://localhost:4004/browse/Players

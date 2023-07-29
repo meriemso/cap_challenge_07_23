@@ -1,38 +1,42 @@
 namespace golf;
 
-type par_type : Integer @assert.range: [
-    1,
-    7
-];
-
 using {managed} from '@sap/cds/common';
 
+
 entity Results {
-    code : Integer;
-    name : String;
+    key code : Integer;
+        name : String @mandatory;
+}
+
+entity Qualities {
+    key code : Integer;
+        name : String @mandatory;
 }
 
 entity Rounds : managed {
     key ID    : UUID;
-        title : String(111);
+        title : String(100);
         holes : Composition of many Holes;
 }
 
 define entity Holes : managed {
-    key ID     : UUID;
-    key round  : Association to Rounds;
-        name   : String;
-        score  : Integer;
-        shots  : Composition of many Shots;
-        par    : par_type;
-        result : String;
+    key ID        : UUID;
+        name      : String(100);
+        score     : Integer;
+        shots     : Composition of many Shots;
+        par       : Integer @assert.range: [
+            3,
+            5
+        ];
+        result    : Association to  Results;
+
 
 }
 
 define entity Shots : managed {
-    key ID          : UUID;
-    key hole        : Association to Holes;
-        name        : String;
-        impact      : Integer;
-        criticality : Integer;
+    key ID       : UUID;
+        name     : String;
+        distance : Integer;
+        quality  : Association to Qualities;
+    
 }
